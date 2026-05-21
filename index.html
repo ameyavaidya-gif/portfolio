@@ -316,6 +316,33 @@
       padding: 4px 12px; border-radius: 50px; letter-spacing: 0.02em;
     }
 
+    /* ─── PDF ACCORDION EMBEDS ─── */
+    .pdf-accordions { display: flex; flex-direction: column; gap: 8px; margin-top: 24px; }
+    .pdf-accordion { border: 1px solid var(--glass-border); border-radius: 12px; overflow: hidden; background: rgba(255,255,255,0.02); }
+    .pdf-accordion-toggle {
+      display: flex; align-items: center; gap: 8px; width: 100%; padding: 10px 16px;
+      background: none; border: none; color: var(--accent-3); font-size: 0.8rem; font-weight: 600;
+      cursor: pointer; transition: all 0.3s ease; font-family: inherit;
+    }
+    .pdf-accordion-toggle:hover { background: rgba(99,102,241,0.08); color: var(--text-primary); }
+    .pdf-accordion-toggle svg { width: 14px; height: 14px; flex-shrink: 0; }
+    .pdf-accordion-toggle .chevron {
+      margin-left: auto; transition: transform 0.3s ease; width: 12px; height: 12px;
+    }
+    .pdf-accordion-toggle.active .chevron { transform: rotate(180deg); }
+    .pdf-embed-wrap {
+      max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .pdf-embed-wrap.open { max-height: 520px; }
+    .pdf-embed-wrap iframe {
+      width: 100%; height: 500px; border: none; border-top: 1px solid var(--glass-border);
+      background: var(--bg-secondary); display: block;
+    }
+    .pdf-accordion-small { border: 1px solid var(--glass-border); border-radius: 10px; overflow: hidden; background: rgba(255,255,255,0.02); margin-top: 12px; }
+    .pdf-accordion-small .pdf-accordion-toggle { padding: 7px 12px; font-size: 0.72rem; }
+    .pdf-accordion-small .pdf-embed-wrap.open { max-height: 420px; }
+    .pdf-accordion-small .pdf-embed-wrap iframe { height: 400px; }
+
     /* ─── SKILLS ─── */
     .skills { background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%); }
     .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -615,7 +642,24 @@
           <div class="metric"><div class="value">30+</div><div class="desc">User Interviews</div></div>
           <div class="metric"><div class="value">Full Cycle</div><div class="desc">Research → Prototype</div></div>
           <div class="metric"><div class="value">OKRs</div><div class="desc">Metrics Dashboard</div></div>
-          <div class="metric"><div class="value">15 min</div><div class="desc">Video Walkthrough</div></div>
+        </div>
+        <div class="pdf-accordions">
+          <div class="pdf-accordion">
+            <button class="pdf-accordion-toggle" onclick="togglePdf(this)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Research PDF
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="pdf-embed-wrap" data-src="https://drive.google.com/file/d/16yOpnaeFUkb_mZTHigBRKiOigr_sWPUs/preview"></div>
+          </div>
+          <div class="pdf-accordion">
+            <button class="pdf-accordion-toggle" onclick="togglePdf(this)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              Presentation
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="pdf-embed-wrap" data-src="https://drive.google.com/file/d/1F4mX-Bg-pa_pepRHouGjuYpLUc6QVcwx/preview"></div>
+          </div>
         </div>
       </div>
 
@@ -653,6 +697,24 @@
           <div class="metric"><div class="value">30/30</div><div class="desc">Evaluation Score</div></div>
           <div class="metric"><div class="value">Kraftful</div><div class="desc">Research Tools</div></div>
           <div class="metric"><div class="value">Conversion</div><div class="desc">Focus Area</div></div>
+        </div>
+        <div class="pdf-accordions">
+          <div class="pdf-accordion">
+            <button class="pdf-accordion-toggle" onclick="togglePdf(this)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Summary PDF
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="pdf-embed-wrap" data-src="https://drive.google.com/file/d/12hgiI8ttdCBO7O6973XTidYy-QQxTlCu/preview"></div>
+          </div>
+          <div class="pdf-accordion">
+            <button class="pdf-accordion-toggle" onclick="togglePdf(this)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Detailed Explanation
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="pdf-embed-wrap" data-src="https://drive.google.com/file/d/17UjI-fJALbZia1pfeN9E91ysuz7tl9NG/preview"></div>
+          </div>
         </div>
       </div>
 
@@ -708,30 +770,65 @@
           <h4>Problem Framing & Prioritization</h4>
           <p>Framed product problems and applied prioritization frameworks to identify high-impact opportunities for Zomato.</p>
           <span class="project-score">&#10003; 30/30</span>
+          <div class="pdf-accordion-small">
+            <button class="pdf-accordion-toggle" onclick="togglePdf(this)">
+              &#128196; View PDF
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="pdf-embed-wrap" data-src="https://drive.google.com/file/d/1Q-5c3WroGpuDsQdvi9JALBvzr6NrMecl/preview"></div>
+          </div>
         </div>
         <div class="glass-card project-card reveal reveal-delay-2">
           <div class="project-icon">&#128260;</div>
           <h4>Growth Loops at Twitter/X</h4>
           <p>Analyzed and designed growth loop strategies for user acquisition and retention.</p>
           <span class="project-score">&#10003; 30/30</span>
+          <div class="pdf-accordion-small">
+            <button class="pdf-accordion-toggle" onclick="togglePdf(this)">
+              &#128196; View PDF
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="pdf-embed-wrap" data-src="https://drive.google.com/file/d/1DX8g03TloU7rRb097biBSUyjSB7aTUKs/preview"></div>
+          </div>
         </div>
         <div class="glass-card project-card reveal reveal-delay-3">
           <div class="project-icon">&#128227;</div>
           <h4>Effective Communication — VitaFit</h4>
           <p>Crafted product communication strategies for stakeholder alignment and go-to-market messaging.</p>
           <span class="project-score">&#10003; 30/30</span>
+          <div class="pdf-accordion-small">
+            <button class="pdf-accordion-toggle" onclick="togglePdf(this)">
+              &#128196; View PDF
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="pdf-embed-wrap" data-src="https://drive.google.com/file/d/1V-y-o74Wuy3dAOmzfDVhFJTVwveXFnig/preview"></div>
+          </div>
         </div>
         <div class="glass-card project-card reveal reveal-delay-1">
           <div class="project-icon">&#128202;</div>
           <h4>Analytics & Metrics</h4>
           <p>Defined product metrics, built KPI tracking frameworks, and analyzed data to drive product decisions.</p>
           <span class="project-score">&#10003; 30/30</span>
+          <div class="pdf-accordion-small">
+            <button class="pdf-accordion-toggle" onclick="togglePdf(this)">
+              &#128196; View PDF
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="pdf-embed-wrap" data-src="https://drive.google.com/file/d/1cOG9p914dYJg5-iAS_1o-l5XkFXG5ZQc/preview"></div>
+          </div>
         </div>
         <div class="glass-card project-card reveal reveal-delay-2">
           <div class="project-icon">&#128736;</div>
           <h4>Build a Functional Prototype</h4>
           <p>Designed and built an interactive product prototype demonstrating core user flows and feature concepts.</p>
           <span class="project-score">&#10003; 30/30</span>
+          <div class="pdf-accordion-small">
+            <button class="pdf-accordion-toggle" onclick="togglePdf(this)">
+              &#128196; View PDF
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="pdf-embed-wrap" data-src="https://drive.google.com/file/d/1t8ZiMh8kmOQ7SRkWuKEWTco-hD-oMJ1E/preview"></div>
+          </div>
         </div>
         <div class="glass-card project-card reveal reveal-delay-3">
           <div class="project-icon">&#9881;</div>
@@ -770,6 +867,13 @@
             <span class="pill">OKR Definition</span>
             <span class="pill">Growth Strategy</span>
             <span class="pill">UX Flow Design</span>
+          </div>
+          <div class="pdf-accordion-small">
+            <button class="pdf-accordion-toggle" onclick="togglePdf(this)">
+              &#128196; View PDF
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="pdf-embed-wrap" data-src="https://drive.google.com/file/d/1FoZchQaMqZF4fd3BnHOSqFnGL9Dboezv/preview"></div>
           </div>
         </div>
         <div class="glass-card skill-group reveal reveal-delay-2">
@@ -1000,6 +1104,20 @@
       }, 2500);
     }
 
+
+    // PDF accordion toggle — lazy-loads iframe on first open
+    function togglePdf(btn) {
+      btn.classList.toggle('active');
+      const wrap = btn.parentElement.querySelector('.pdf-embed-wrap');
+      const isOpen = wrap.classList.toggle('open');
+      if (isOpen && !wrap.querySelector('iframe')) {
+        const iframe = document.createElement('iframe');
+        iframe.src = wrap.dataset.src;
+        iframe.setAttribute('allow', 'autoplay');
+        iframe.setAttribute('loading', 'lazy');
+        wrap.appendChild(iframe);
+      }
+    }
     // Parallax effect on hero floating shapes
     document.addEventListener('mousemove', (e) => {
       const shapes = document.querySelectorAll('.float-shape');
